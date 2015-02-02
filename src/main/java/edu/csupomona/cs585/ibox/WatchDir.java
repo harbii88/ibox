@@ -102,11 +102,13 @@ public class WatchDir {
                 System.out.format("%s: %s\n", event.kind().name(), child);
 
                 // sync to remote
+                System.out.print(event.kind());
                 try {
 	                if (event.kind() == ENTRY_CREATE) {
 	                	fileSyncManager.addFile(child.toFile());
 	                } else if (event.kind() == ENTRY_MODIFY) {
 	                	fileSyncManager.updateFile(child.toFile());
+	                	return;
 	                } else if (event.kind() == ENTRY_DELETE) {
 	                	fileSyncManager.deleteFile(child.toFile());
 	                }

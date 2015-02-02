@@ -45,6 +45,7 @@ public class GoogleDriveFileSyncManager implements FileSyncManager {
 
 	@Override
 	public void deleteFile(java.io.File localFile) throws IOException {
+    	System.out.print("in delete function");
 		String fileId = getFileId(localFile.getName());
 		if (fileId == null) {
 			throw new FileNotFoundException();
